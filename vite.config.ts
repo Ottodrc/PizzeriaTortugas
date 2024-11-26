@@ -7,4 +7,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ['lucide-react'],
   },
-}); 
+  resolve: {
+    alias: {
+      '@assets': '/src/assets', // Alias para acceder a la carpeta assets
+    },
+  },
+});

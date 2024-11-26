@@ -9,14 +9,14 @@ interface CuartoPizzaProps {
   onSelect: () => void;
 }
 
-export default function PizzaCuarto({posicion , seleccionado, sabor, onSelect }: CuartoPizzaProps) {
+export default function PizzaCuarto({ posicion, seleccionado, sabor, onSelect }: CuartoPizzaProps) {
   const getQuarterStyles = () => {
-    const baseStyles = "absolute w-1/2 h-1/2 cursor-pointer transition-all duration-300";
+    const baseStyles = "absolute w-full h-full cursor-pointer transition-all duration-300";
     const posiciones = {
-      0: "top-0 left-0 origin-bottom-right rounded-tl-full",
-      1: "top-0 right-0 origin-bottom-left rounded-tr-full",
-      2: "bottom-0 right-0 origin-top-left rounded-br-full",
-      3: "bottom-0 left-0 origin-top-right rounded-bl-full"
+      0: "top-0 left-0 origin-bottom-right",
+      1: "top-0 right-0 origin-bottom-left",
+      2: "bottom-0 right-0 origin-top-left",
+      3: "bottom-0 left-0 origin-top-right"
     };
     
     return `${baseStyles} ${posiciones[posicion]}`;
@@ -27,27 +27,25 @@ export default function PizzaCuarto({posicion , seleccionado, sabor, onSelect }:
       className={getQuarterStyles()}
       whileHover={{ scale: 1.05 }}
       onClick={onSelect}
+      style={{
+        clipPath: posicion === 0
+          ? 'polygon(50% 50%, 100% 0, 100% 100%)' // Superior derecho
+          : posicion === 1
+          ? 'polygon(50% 50%, 100% 100%, 0 100%)' // Inferior derecho
+          : posicion === 2
+          ? 'polygon(50% 50%, 0 100%, 0 0)' // Inferior izquierdo
+          : 'polygon(50% 50%, 0 0, 100% 0)', // Superior izquierdo
+      }}
     >
       <div 
-        className={`w-full h-full ${seleccionado ? 'ring-4 ring-green-500' : ''} rounded-full overflow-hidden`}
+        className={`w-full h-full ${seleccionado ? 'ring-4 ring-green-500' : ''} overflow-hidden`}
         style={{
-          clipPath: posicion === 0 ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' :
-                    posicion === 1 ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' :
-                    posicion === 2 ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' :
-                   'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
+          backgroundImage: sabor ? `url(${sabor.imagen})` : undefined,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
-        {sabor ? (
-          <div 
-            className="w-full h-full bg-cover bg-center transform transition-transform duration-300"
-            style={{ 
-              backgroundImage: `url(${sabor.imagen})`,
-              transform: `rotate(${posicion * 90}deg)`
-            }}
-          />
-        ) : (
-          <div className="w-full h-full bg-yellow-100" />
-        )}
+        {!sabor && <div className="w-full h-full bg-yellow-100" />}
       </div>
     </motion.div>
   );
