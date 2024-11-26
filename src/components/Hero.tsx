@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Cowabunga! La mejor Pizza! Directo desde NYC!
+            Cowabunga! La mejor Pizza estilo NYC!
           </motion.p>
           
           <motion.div

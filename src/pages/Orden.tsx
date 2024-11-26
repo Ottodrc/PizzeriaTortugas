@@ -1,4 +1,5 @@
 import React from 'react';
+import PizzaCustomizador from '../components/Pizza/PizzaCustomizador';
 export default function Order() {
     return (
       <div className="pt-16">
@@ -8,6 +9,7 @@ export default function Order() {
             <p className="text-xl">Crea tu pizza por cuarto!</p>
           </div>
         </div>
+        <PizzaCustomizador />
       </div>
     );
   }
