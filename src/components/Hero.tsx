@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import fondo from '../assets/grande.png';
 
 export default function Hero() {
   return (
@@ -9,7 +10,8 @@ export default function Hero() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(.\Resources\images.jpg)',
+          backgroundImage: `url(${fondo})`,
+          backgroundSize: 'cover',
           filter: 'brightness(0.5)'
         }}
       />
@@ -40,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Link
-              to="/order"
+              to="/orden"
               className="inline-flex items-center bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-500 transition duration-300"
             >
               Pedir Ahora

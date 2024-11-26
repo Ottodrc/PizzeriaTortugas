@@ -23,7 +23,7 @@ export default function Navbar() {
               <Link to="/" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
                 Home
               </Link>
-              <Link to="/order" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
+              <Link to="/orden" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
                 Pedir Ahora
               </Link>
               <Link to="/about" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
@@ -54,7 +54,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              to="/order"
+              to="/orden"
               className="text-white hover:bg-green-500 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => SetearAbierto(false)}
             >
