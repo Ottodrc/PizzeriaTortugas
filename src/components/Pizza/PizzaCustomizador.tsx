@@ -34,7 +34,7 @@ export default function PizzaCustomizer() {
   };
 
   const calcularTotal = () => {
-    const precioBase = 10;
+    const precioBase = 1000.0;
     const totalSabores = cuartos.reduce((total, cuarto) => {
       return total + (cuarto.sabor?.precio || 0);
     }, 0);
