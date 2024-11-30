@@ -24,7 +24,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            La Pizzeria de mi orto peludo
+            La Pizzeria de las tortugas ninja
           </motion.h1>
           
           <motion.p 
@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Chupenme la pija!
+            Cowabunga o algo así no se (borre el texto sin querer)
           </motion.p>
           
           <motion.div
