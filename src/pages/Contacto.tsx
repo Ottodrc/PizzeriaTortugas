@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-export default function Contacto() {
+const Contacto: React.FC = () => {
   const [formData, setFormData] = useState({
     nombreApellido: '',
     email: '',
     mensaje: '',
   });
+  const [status, setStatus] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -14,21 +15,41 @@ export default function Contacto() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Datos enviados:', formData);
-    // Aquí puedes agregar lógica para enviar los datos al servidor
+
+    // Aquí agregaríamos la lógica para enviar los datos al servidor
+    const formDataToSend = {
+      email: formData.email,
+      name: formData.nombreApellido,
+      message: formData.mensaje,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDataToSend),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        setStatus("¡Mensaje enviado con éxito!");
+      } else {
+        setStatus(result.error || "Error al enviar el mensaje.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("Error al enviar el mensaje.");
+    }
   };
 
   return (
-    <div
-      className="flex justify-center items-center min-h-screen bg-gray-100"
-      style={{ paddingTop: '5rem' }} // Añadido espacio superior
-    >
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-8 max-w-md w-full"
-      >
+    <div className="flex justify-center items-center min-h-screen bg-gray-100" style={{ paddingTop: '5rem' }}>
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
         <h1 className="text-2xl font-bold mb-6 text-center text-green-600">Contáctanos</h1>
 
         {/* Campo de Nombre y Apellido */}
@@ -86,7 +107,12 @@ export default function Contacto() {
         >
           Enviar
         </button>
+
+        {/* Estado del formulario */}
+        {status && <p className="mt-4 text-center text-green-600">{status}</p>}
       </form>
     </div>
   );
-}
+};
+
+export default Contacto;
