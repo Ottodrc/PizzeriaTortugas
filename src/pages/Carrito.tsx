@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCarrito } from '../Context/CarritoContext';
-import ItemCarrito from '../components/Carrito/ItemCarrito';
+//import ItemCarrito from '../components/Carrito/ItemCarrito'; Tira error acá
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
 
