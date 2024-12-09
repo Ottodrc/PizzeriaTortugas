@@ -26,9 +26,9 @@ export default function Navbar() {
               <Link to="/orden" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
                 Pedir Ahora
               </Link>
-              <Link to="/about" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
-                Sobre Nosotros
-              </Link>
+              <Link to="/ubicacion" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
+  Ubicación
+</Link>
               <Link to="/contacto" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
                Contacto
                </Link>
