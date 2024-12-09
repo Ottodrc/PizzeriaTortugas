@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "http://localhost:5173" })); //Cambiar a 5174 si la otra no funciona
 
 // Ruta para enviar correos
 app.post("/send", async (req, res) => {
