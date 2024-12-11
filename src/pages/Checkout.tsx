@@ -92,7 +92,7 @@ export default function Checkout() {
                   <label className="block text-sm font-medium text-gray-700">telefono</label>
                   <input
                     type="tel"
-                    name="phone"
+                    name="telefono"
                     value={formData.telefono}
                     onChange={handleInputChange}
                     required

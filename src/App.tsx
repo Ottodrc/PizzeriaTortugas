@@ -8,6 +8,7 @@ import Carrito from './pages/Carrito';
 import Checkout from './pages/Checkout';
 import Contacto from './pages/Contacto';
 import Ubicacion from './pages/Ubicacion';
+import CheckoutExito from './pages/CheckoutExito';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="Orden" element={<Orden />} />
           <Route path="Carrito" element={<Carrito />} />
           <Route path="Checkout" element={<Checkout />} />
+          <Route path="Checkout/exito" element={<CheckoutExito />} />
           <Route path="Contacto" element={<Contacto />} />
           <Route path="Ubicacion" element={<Ubicacion />} />
         </Routes>

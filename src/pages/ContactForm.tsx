@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useFormState } from 'react-dom'
-import { sendEmail } from '../actions/sendEmail'
+import { useFormState } from 'react-hook-form''
+import { sendEmail } from '../actions/EnviarMail.tsx'
 
 export default function ContactForm() {
   const [state, formAction] = useFormState(sendEmail, null)
