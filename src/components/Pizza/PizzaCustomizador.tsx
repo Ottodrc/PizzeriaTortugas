@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { Sabor, SeleccionCuarto } from '../../types/pizza';
+import { useCarrito } from '../../Context/CarritoContext';
 import { sabores } from '../../data/sabores';
 import PizzaCuarto from './PizzaCuartos';
 import SelectorSabores from './SelectorSabores';
 
-export default function PizzaCustomizer() {
+export default function PizzaCustomizador() {
+  const navigate = useNavigate();
+  const { dispatch } = useCarrito();
   const [cuartoSeleccionado, setCuartoSeleccionado] = useState<number | null>(null);
   const [saborSeleccionado, setSaborSeleccionado] = useState<Sabor | null>(null);
   const [cuartos, setCuartos] = useState<SeleccionCuarto[]>([
@@ -39,6 +44,23 @@ export default function PizzaCustomizer() {
       return total + (cuarto.sabor?.precio || 0);
     }, 0);
     return precioBase + totalSabores;
+  };
+
+  const agregarCarrito = () => {
+    const CarritoItem = {
+      id: uuidv4(),
+      cuartos: cuartos.map((c, idx) => ({
+        posicion: idx,
+        saborNombre: c.sabor?.nombre || '',
+        saborPrecio: c.sabor?.precio || 0,
+      })),
+      basePrecio: 10,
+      precioTotal: calcularTotal(),
+      cantidad: 1,
+    };
+    
+    dispatch({ type: 'AGREGAR_ITEM', payload: CarritoItem });
+    navigate('/Carrito');
   };
 
   return (
@@ -98,6 +120,12 @@ export default function PizzaCustomizer() {
                 </p>
               </div>
             </div>
+            <button 
+              onClick={agregarCarrito}
+              className="w-full mt-4 bg-green-600 text-white py-3 px-6 rounded-lg font-semibold
+                hover:bg-green-500 transition duration-300">
+              Añadir al Carrito
+            </button>
           </div>
         </div>
       </div>

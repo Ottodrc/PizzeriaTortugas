@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import fondo from '../assets/grande.png';
+import fondo from '@assets/grande.png';
 
 export default function Hero() {
   return (
@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Cowabunga o algo así no se (borre el texto sin querer)
+            Cowabunga!
           </motion.p>
           
           <motion.div

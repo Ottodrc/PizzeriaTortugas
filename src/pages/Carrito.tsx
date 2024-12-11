@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCarrito } from '../Context/CarritoContext';
-//import ItemCarrito from '../components/Carrito/ItemCarrito'; Tira error acá
+import CarritoItem from '../components/Carrito/CarritoItem';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ShoppingBag } from 'lucide-react';
 
@@ -34,7 +34,7 @@ export default function Carrito() {
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="space-y-2">
             {estado.items.map((item) => (
-              <ItemCarrito key={item.id} item={item} />
+              <CarritoItem key={item.id} item={item} />
             ))}
           </div>
           

@@ -10,7 +10,7 @@ interface CuartoPizzaProps {
 }
 
 export default function PizzaCuarto({ posicion, seleccionado, sabor, onSelect }: CuartoPizzaProps) {
-  const getQuarterStyles = () => {
+  const getEstiloCuartos = () => {
     const baseStyles = "absolute w-full h-full cursor-pointer transition-all duration-300";
     const posiciones = {
       0: "top-0 left-0 origin-bottom-right",
@@ -24,7 +24,7 @@ export default function PizzaCuarto({ posicion, seleccionado, sabor, onSelect }:
 
   return (
     <motion.div
-      className={getQuarterStyles()}
+      className={getEstiloCuartos()}
       whileHover={{ scale: 1.05 }}
       onClick={onSelect}
       style={{
@@ -38,11 +38,13 @@ export default function PizzaCuarto({ posicion, seleccionado, sabor, onSelect }:
       }}
     >
       <div 
-        className={`w-full h-full ${seleccionado ? 'ring-4 ring-green-500' : ''} overflow-hidden`}
+        className={`w-full h-full overflow-hidden`}
         style={{
           backgroundImage: sabor ? `url(${sabor.imagen})` : undefined,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          border: seleccionado ? '4px solid #22c55e' : 'none', // borde verde
+          boxSizing: 'border-box', 
         }}
       >
         {!sabor && <div className="w-full h-full bg-yellow-100" />}
