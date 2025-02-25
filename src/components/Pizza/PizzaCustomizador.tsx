@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { Sabor, SeleccionCuarto } from '../../types/pizza';
 import { useCarrito } from '../../Context/CarritoContext';
-import { sabores } from '../../data/sabores';
 import PizzaCuarto from './PizzaCuartos';
 import SelectorSabores from './SelectorSabores';
 
@@ -19,6 +18,22 @@ export default function PizzaCustomizador() {
     { posicion: 2, sabor: null },
     { posicion: 3, sabor: null },
   ]);
+  const [sabores, setSabores] = useState<Sabor[]>([]); // Estado para los sabores
+
+  
+  useEffect(() => {
+    const fetchSabores = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/sabores'); // Reemplaza con tu URL del backend
+        const data = await response.json();
+        setSabores(data);
+      } catch (error) {
+        console.error('Error al obtener sabores:', error);
+      }
+    };
+
+    fetchSabores();
+  }, []);
 
   const manejarSeleccionCuartos = (posicion: number) => {
     setCuartoSeleccionado(posicion);
@@ -92,7 +107,7 @@ export default function PizzaCustomizador() {
               Hace click en un cuarto de la pizza y elegi tu gusto preferido!
             </p>
             <SelectorSabores
-              sabores={sabores}
+              sabores={sabores} // 🔥 Pasamos los sabores obtenidos del backend
               saborSeleccionado={saborSeleccionado}
               onSaborSeleccionado={manejarSeleccionSabor}
             />
