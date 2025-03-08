@@ -14,8 +14,18 @@ export default function Navbar() {
             <Link to="/" className="flex items-center">
               <Pizza className="h-8 w-8 text-white" />
               <span className="ml-2 text-white font-bold text-xl">Las Tortugas Ninja</span>
-              
             </Link>
+
+            {/* Icono de Instagram */}
+            <a 
+              href="https://www.instagram.com/lapizzeriaok_/" 
+              target="_blank" 
+              className="ml-4 text-white text-2xl"
+              rel="noopener noreferrer"
+            >
+              {/* Asegúrate de que Font Awesome esté cargado correctamente */}
+              <i className="fab fa-instagram"></i>
+            </a>
           </div>
           
           <div className="hidden md:block">
@@ -27,11 +37,11 @@ export default function Navbar() {
                 Pedir Ahora
               </Link>
               <Link to="/ubicacion" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
-  Ubicación
-</Link>
+                Ubicación
+              </Link>
               <Link to="/contacto" className="text-white hover:bg-green-500 px-3 py-2 rounded-md font-medium">
-               Contacto
-               </Link>
+                Contacto
+              </Link>
             </div>
           </div>
           
