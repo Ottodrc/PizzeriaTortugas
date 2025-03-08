@@ -12,7 +12,7 @@ export default function Ubicacion() {
         <div className="rounded-lg overflow-hidden shadow-md">
           <iframe
             title="Ubicación del Local"
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAW2tztwPALuLwdidfkPOGW6Gddroabt5M&q=Calle+710+al+1205+bis,+Rosario`}
+            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAW2tztwPALuLwdidfkPOGW6Gddroabt5M&q=Mendoza 930, Rosario, Santa Fe 2000`}
             width="100%"
             height="400"
             allowFullScreen
