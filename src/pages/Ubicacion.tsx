@@ -7,7 +7,7 @@ export default function Ubicacion() {
         <h1 className="text-2xl font-bold text-center text-green-600 mb-6">Nuestra Ubicación</h1>
         <p className="text-gray-700 text-center mb-4">
           Ven a visitarnos en: <br />
-          <span className="font-semibold">Calle 710 al 1205 bis, Rosario</span>
+          <span className="font-semibold">Mendoza 930, Rosario, Santa Fe</span>
         </p>
         <div className="rounded-lg overflow-hidden shadow-md">
           <iframe
